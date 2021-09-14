@@ -135,6 +135,28 @@ int * pAge = &age;
 printf("%d", *pAge);
 
 
+//COMP1511 Basics
+/*ls list all files in the current directory
+mkdir directoryName - makes a new directory called directoryName
+cd changes current directory
+pwd tells you where you are in the directory structure at the moment
+gedit helloworld.c &
+dcc helloWorld.c -o hello 
+./hello   
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
