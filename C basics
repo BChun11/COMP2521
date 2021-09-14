@@ -1,0 +1,142 @@
+//I want to store a character variable given the name 'CharacterName' and I used the [] to tell C, I want to store a bunch of characters not just one
+char characterName[] = "John"; 
+int characterAge = 35;
+
+printf("he was %d years old\n", characterAge);
+printf("his name was %s\n", characterName);
+//Now I want to change the age to 25
+characterAge = 25;
+printf("He is now %d years old\n", characterAge);
+
+
+//Data Types
+double gpa = 3.5;
+char grade = 'a'; //Can only store one character not a string
+char phrase = "Hello"; //Can store a string of characters
+printf("her gpa is %f\n", 500.98);
+printf("%f", 5/4.0) //For it to work one of the numbers must be a decimal
+/*  */
+
+//Constants
+const int NUM = 6;
+
+//Getting user input
+int age;
+double gpa;
+char character;
+char name[20];
+
+printf("Please enter your age  :");
+scanf("%d", &age);
+scanf("%lf", &gpa);
+scanf("%c", &character);
+
+//Using scanf and fgets for getting strings from user input
+scanf("%s", name); //Ex name is john smith then scanf will only display john
+fgets(name, 20, stdin); //Display strings with spaces inbetween, 20 limit if characters, stdin gets input from console
+
+//Inserting first and last name
+char first[20];
+char last[20];
+scanf("%s%s", first, last);
+
+//Arrays
+int luckyNumbers[] = {4, 8, 15, 42};
+luckyNumbers[1] = 200; //modifying element
+printf("%d", luckyNumbers[0]);
+
+//Functions
+int main()
+{
+  sayHi();
+  sayBye("Mike", 43);
+  return 0;
+}
+
+//void function doesnt return any info
+void sayHi() {
+  printf("Hello User");
+}
+
+void sayBye(char name[], int age) {
+  printf("Hello %s, you are %d\n", name, age);
+}
+
+
+//Return Statements
+double cube(double num);
+
+int main() {
+  printf("Answer: %f", cube(3.0));
+  return 0;
+}
+
+double cube(double num) {
+  double result = num * num * num;
+  return result;
+}
+
+
+
+//Structs
+struct Student{
+  char name[50];
+  char major[50];
+  int age;
+  double gpa;
+};
+
+int main() {
+
+  //Created a container called student1 that's going to be able to store name,major,age and gpa
+  //Difference between arrays and structs-arrays can only store same data types
+  struct Student student1;
+  student1.age = 22;
+  student1.gpa = 3.2;
+  //For strings must use strcpy()
+  strcpy(student1.name, "Jim");
+  strcpy(student1.major, "Data Science");
+  
+  printf("%f", student1.gpa);
+  
+  return 0;
+}
+
+//2D Arrays
+int main() {
+  //3 Elements in the array and each array has 2 elements inside of it
+  int nums[3][2] = { 
+                      {1,2},
+                      {2,9},
+                      {6,7}
+                    };
+    //Using two for loops to print out all elements in the 2D nums array
+    int i, j;
+    for(i = 0; i < 3; i++;) {
+      for(j = 0; j < 2; j++;) {
+        printf("%d", nums[i][j]);
+      }
+    }
+    
+  return 0;
+}
+
+//Pointers
+int age = 30;
+int * pAge = &age;
+printf("Memory address of age is %p", pAge);
+
+/*Dereferencing Pointers
+Going to the physical memory address to access the data of the actual integer value of age inside that memory address
+*/
+int age = 30;
+int * pAge = &age;
+//Dereferencing pointer
+printf("%d", *pAge);
+
+
+
+
+
+
+
