@@ -145,7 +145,12 @@ dcc helloWorld.c -o hello
 ./hello   
 */
 
-
+//For loops
+int luckyNumbers[] = {1, 34, 42, 61, 72};
+int i;
+for(i = 0; i < 6; i++) {
+  printf("%d", luckyNumbers[i]);
+}
 
 
 
