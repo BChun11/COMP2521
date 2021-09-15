@@ -1,0 +1,12 @@
+//Pointers
+/*Pointer is a type of data that is a memory address*/
+
+int age = 30;
+int * pAge = &age;  //When creating a pointer variable, inside of that pointer variable you store a memory address of another variable 
+
+
+printf("Age's memory address is %p\n", &age);
+printf("Pointer variable address is %p\n", pAge);
+
+
+//Malloc
