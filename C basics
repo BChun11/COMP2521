@@ -153,12 +153,44 @@ for(i = 0; i < 6; i++) {
 }
 
 
+//Switch Statement
+char grade = 'A';
+switch(grade) {
+  case 'A' :
+    printf("You did great!");
+    break; //break statements tells the switch statement that it wants to leave
+  
+  case 'B' :
+    printf("You did alright!");
+    break;
+  
+  default :
+    printf("Invalid Grade");
+}
 
 
 
+// Lecture examples
+
+if (x > 0) {
+  y = x - 1;
+} 
+else {
+  y = x + 1;
+}
+//Is Equivalent to
+y = (x > 0) ? x-1 : x+1;
 
 
-
+if (x > 0) {
+  y = x - 1; z = x + 1;
+} 
+else {
+  y = x + 1; z = x - 1;
+}
+//Is Equivalent to
+y = (x > 0) ? x-1 : x+1;
+z = x > 0 ? x+1 : x-1;
 
 
 
