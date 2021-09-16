@@ -46,4 +46,31 @@ printf("Pointer variable address is %p\n", pAge);
 
 
 //Malloc
+/*The Malloc function allocates size bytes of memory and returns a pointer to the allocated memory
+Malloc will go and ask the computer to set aside the amount of memory you asked for and then it will return a pointer to that memory */
+#include <stdlib.h>
+
+int numberOfElements;
+scanf("%d", &numberOfElements);
+
+int *myArray = malloc(sizeof(int) * numberOfElements); //Want memory space of an integer x numberOfElements
+
+//Deleting Maloc (memory)
+free(myArray) //Free the pointer
+
+//myArray[] is the same as *myArray
+int myArray[MAX_SIZE];
+int *myArray = malloc(sizeof(int) * numberOfElements);
+
+
+
+
+
+
+
+
+
+
+
+
 
