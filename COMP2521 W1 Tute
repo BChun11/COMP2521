@@ -191,7 +191,12 @@ struct node *delete_all(struct node *list) {
 }
 
 
-
+//argc and argv
+/*argc represents the number of things that you entered into the command line when running the program on a terminal
+argv is an array that holds the string values of the things that were entered on the command line when running the program
+*/
+int main(int arg c, char *argv[]) {
+}
 
 
 
