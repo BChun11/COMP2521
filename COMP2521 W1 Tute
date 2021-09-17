@@ -33,6 +33,34 @@ switch(grade) {
 #include <assert.h>
 assert() //assert will terminate the program if its argument turns out to be false
 
+//Linked Lists
+struct node {
+  int data;
+  struct node *next;
+};
+
+//Sums all the values in the list
+int sum_list_values(struct node *list) {
+  int sum = 0;
+  //Step 1: make current to keep track of where we are in the list
+  struct node *current = list;
+  //Step 2: Iterate through the list using a loop (Null is at the end)
+  while(current != NULL) {
+    sum += current->data;
+  //Step 3: reassign current to iterate through the loop
+  current = current->next;
+  }
+  return sum;
+}
+
+
+
+
+
+
+
+
+
 
 //Pointers
 /*Pointer is a type of data that is a memory address*/
