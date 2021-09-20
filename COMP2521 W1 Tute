@@ -1,3 +1,4 @@
+gcc -Wall -Werror program.c -o program
 //COMP1511 Code Gap
 
 //While loop
