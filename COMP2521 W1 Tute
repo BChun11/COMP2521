@@ -31,7 +31,7 @@ switch(grade) {
 
 //Assert functions
 #include <assert.h>
-assert() //assert will terminate the program if its argument turns out to be false
+assert(); //assert will terminate the program if its argument turns out to be false
 
 //Linked Lists
 struct node {
