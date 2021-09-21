@@ -200,15 +200,69 @@ int main(int arg c, char *argv[]) {
 }
 
 
-//1.3 Compilation and Makefiles
+//Recursions
 
+//Return count of nodes in the list
+int length(struct node *head) {
+  if (head == NULL){
+    return 0;
+  }
+  return 1 + length(head->next);
+}
 
+//Find last node using recursion
+int last(struct node *head) {
+  //list is empty
+  if (head == NULL) {
+    return NULL;
+  }
+  //Base case
+  else if (head->next == NULL) {
+    return head;
+  }
+  else {
+    return last(head->next);
+  }
+}
 
+//Find node using recursion
+int find(struct node *head, int data) {
+  //empty list
+  if (head == NULL) {
+    return NULL;
+  }
+  //base case
+  else if (head->data == data) {
+    return head;
+  }
+  else {
+    return find(head->next, data);
+  }
+  
+}
 
+//Delete from list using recursion
+int delete(struct node *list, int value) {
+  //empty list
+  if (head == NULL) {
+    return NULL;
+  }
+  //base case
+  else if (list->data == value) {
+    struct node *temp = list;
+    free(temp);
+  } 
+  else {
+    list->next = delete(list->next, value);
+  }
+  return list;
 
+}
 
+//Insert a node into an ordered list: recursive
+int insert_node(struct node *head) {
 
-
+}
 
 
 
