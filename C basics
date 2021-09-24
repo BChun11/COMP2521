@@ -194,6 +194,13 @@ z = x > 0 ? x+1 : x-1;
 
 
 
+ * Removes an item from the front of the queue and returns it
+ * Assumes that the queue is not empty
+ */
+Item QueueDequeue(Queue q) {
+struct node *current = q->head;
+Item it = current->item;
+
 
 
 
