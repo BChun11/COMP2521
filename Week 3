@@ -1,0 +1,18 @@
+//Binary Search tree
+//BST Insertion
+
+//BStree.h file Defines our ADT
+typedef struct Node *Tree;
+
+//BStree.c file Implements the tree
+#include "BStree.h"
+typedef struct Node {
+  int data;
+  Tree left, right;
+} Node;
+
+//main.c
+int main(int argc, char *argv[]) {
+
+  return 0;
+}
