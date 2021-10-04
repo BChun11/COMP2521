@@ -28,10 +28,23 @@ typedef struct Node {
 
 //Create a node
 Tree TreeCreate(Item it) {
+  Tree root = malloc(sizeof(struct Node));
+  root->data = it;
+  //Pointer to left and right node
+  root->left = NULL;
+  root->right = NULL;
+  return root;
 }
 
 // Insert a new item into a Tree
 Tree TreeInsert(Tree t, Item it) {
+  //Tree is empty
+  if (t == NULL) {
+    TreeCreate(it);
+  } else if (it > t->data) { 
+    
+  } else if (it < t->data) {
+  }
 }
 
 void TreeFree(Tree t) {
