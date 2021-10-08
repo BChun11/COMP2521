@@ -18,3 +18,40 @@ int main(int argc, char *argv[]) {
   donotchange(&sum); //address of the function
   return 0;
 }
+
+--------------------------------------------------
+typedef struct BSTNode *BSTree;
+typedef struct BSTNode {
+	int value;
+	BSTree left;
+	BSTree right;
+} BSTNode;
+
+// counts #nodes in a tree
+int BSTreeNumNodes(BSTree t) { 
+  //base case
+  if (t == NULL) {
+    return 0;
+  }
+  return 1 + BSTreeNumNodes(t->left) + BSTreeNumNodes(t->right);
+}
+
+//Counts the number of odd values in a tree
+int BSTreeCountOdds(BSTree t) {  
+  //Base case
+  if (t == NULL) {
+    return 0;
+  }
+  //If the nodes' value is odd count 1
+  if ((t->value % 2) != 0) {
+    return 1 + BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+  }
+  //If the nodes' value is even just move on 
+  return BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
+}
+
+
+
+
+
+
