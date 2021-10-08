@@ -50,6 +50,21 @@ int BSTreeCountOdds(BSTree t) {
   return BSTreeCountOdds(t->left) + BSTreeCountOdds(t->right);
 }
 
+//Count no. of internal nodes
+BSTreeCountInternal(BSTree t) {  
+    //base case
+    if (t == NULL) {
+    	return 0;
+    }
+    if (t->left == NULL && t->right == NULL) {
+    	return 0;
+    }
+    return 1 + BSTreeCountInternal(t->left) + BSTreeCountInternal(t->right);
+}
+
+
+
+
 
 
 
