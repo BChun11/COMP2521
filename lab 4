@@ -1,0 +1,40 @@
+    int fname = strcmp(RecordGetFamilyName(r1), RecordGetFamilyName(r2));
+    int gname = strcmp(RecordGetGivenName(r1), RecordGetGivenName(r2));
+    if (fname != 0) {
+        return fname;
+    } else if (gname != 0) {
+        return gname;
+    } 
+    //Case for when name is the same 
+    return compareByZid(r1, r2); 
+    
+    //dbnew
+    db->byName = TreeNew(compareByName);
+    
+    //TreeSearchBetween
+    struct list *new = ListNew();
+    doTreeSearchBetween(t, t->root, lower, upper, new);
+    return new; 
+    
+    //doTreeSearchBetween
+      //Base case 
+    if (n == NULL) {
+        return;
+    }  
+    int Rlow = t->compare(lower, n->rec);
+    int Rup = t->compare(upper, n->rec);
+
+    if (Rlow < 0) {
+        //Recursive call of left subtree
+        doTreeSearchBetween(t, n->left, lower, upper, l); 
+    } 
+    if (Rlow <= 0 && Rup >= 0) {
+        //If current value is in the range append to list
+        ListAppend(l, n->rec); 
+    } 
+    if (Rup > 0) {
+        //Recursive call of right subtree
+        doTreeSearchBetween(t, n->right, lower, upper, l);
+    }  
+    
+    
