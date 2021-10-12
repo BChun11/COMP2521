@@ -38,3 +38,61 @@
     }  
     
     
+    
+Possible concrete 2-3-4 tree data structure:
+typedef struct node {
+   int          order;     // 2, 3 or 4
+   int          data[3];   // items in node
+   struct node *child[4];  // links to subtrees
+} node;
+    
+ //Searching in 2-3-4 Trees
+    Search(tree,item):
+|  Input  tree, item
+|  Output address of item if found in 2-3-4 tree
+|         NULL otherwise
+|
+|  if tree is empty then
+|     return NULL
+|  else
+|  |  scan tree.data to find i such that
+|  |     tree.data[i-1] < item ≤ tree.data[i]
+|  |  if item=tree.data[i] then   // item found
+|  |     return address of tree.data[i]
+|  |  else       // keep looking in relevant subtree
+|  |     return Search(tree.child[i],item)
+|  |  end if
+|  end if
+    
+//Insertion algorithm:
+insert(tree,item):
+|  Input  2-3-4 tree, item
+|  Output tree with item inserted
+|
+|  if tree is empty then
+|     return new node containing item
+|  end if
+|  node=Search(tree,item)
+|  parent=parent of node
+|  if node.order < 4 then
+|     insert item into node
+|     increment node.order
+|  else
+|  |  promote = node.data[1]     // middle value
+|  |  nodeL   = new node containing data[0]
+|  |  nodeR   = new node containing data[2]
+|  |  delete node
+|  |  if item < promote then
+|  |     insert(nodeL,item)
+|  |  else
+|  |     insert(nodeR,item)
+|  |  end if
+|  |  insert(parent,promote)
+|  |  while parent.order=4 do
+|  |     continue promote/split upwards
+|  |  end while
+|  |  if parent is root ∧ parent.order=4 then
+|  |     split root, making new root
+|  |  end if
+|  end if
+    
