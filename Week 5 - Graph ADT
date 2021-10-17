@@ -1,3 +1,54 @@
 //Graph Implementations
 
 //Array of edges
+typedef struct GraphRep {
+   Edge *edges   // array of edges
+   int    nV;      // #vertices
+   int    nE;      // #edges
+   int    n;       //size of edge array
+} GraphRep;
+
+//Create a new graph
+Graph newGraph(int V) {
+  assert(V >= 0);
+  //size of graph malloc
+  Graph g = malloc(sizeof(GraphRep));
+  assert(g != NULL);
+  g->nV = V;
+  g->nE = 0;
+
+  //allocate enough memory for edges
+  g->n = (V*(V-1)) / 2; //size of edge array
+  g->edges = malloc(g->n * sizeof(Edge)); //malloc array of edges
+  assert(g->edges != NULL);
+  return g;
+}
+
+//Inserts an edge
+void insertEdge(Graph g, Edge e) {
+  //ensure that g exists and array of edges isn't full
+  assert(g != NULL && g->nE < g->n);
+  
+  int i = 0;
+  while (i < g->nE && !eq(e, g->edges[i])) {  //Go through graph to check if edge exists
+    i++;
+  }
+  if (i == g->nE) { //edge e is not found
+    g->edges[g->nE++] = e;  //Increase number of edges and allocate edge e to the edge array
+  }
+}
+
+//Remove an edge
+void removeEdge(Graph g, Edge e) {
+  //ensure that g exists and array of edges isn't full
+  assert(g != NULL && g->nE < g->n);
+  
+  int i = 0;
+  while (i < g->nE && !eq(e, g->edges[i])) {  //Go through graph to check if edge exists
+    i++;
+  }
+  if (i < g->nE) { //edge e is found
+    g->edges[i] = g->edges[g->nE--];  //Delete edge
+  }
+}
+
