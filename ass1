@@ -1,0 +1,99 @@
+// Implementation of the File System ADT
+// COMP2521 Assignment 1
+
+// Written by:
+// Date:19/10/2021
+
+#include <assert.h>
+#include <ctype.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#include "FileType.h"
+#include "Fs.h"
+#include "utility.h"
+
+#define FSIZE 1000
+struct FsRep {
+    char *fname;
+    //First children from the root 
+    struct FsRep *child;
+    //Next children
+    struct FsRep *nextSibling;  
+    //Pointer to current working directory
+    struct FsRep *current;
+};
+
+/*This function allocates and initialises a new struct FsRep, create the 
+root directory for the file system and make the root directory the 
+current working directory*/
+Fs FsNew(void) {
+    Fs root = malloc(sizeof(Fs)); 
+    assert(root != NULL);
+	root->child = NULL;
+	root->nextSibling = NULL;
+    root->current = root;  
+    return root;
+}
+
+/*This function should put the canonical path of the current working 
+directory into the given cwd array*/
+void FsGetCwd(Fs fs, char cwd[PATH_MAX + 1]) {
+    fs->fname = cwd;
+    fs->current = fs;
+}
+
+void FsFree(Fs fs) {
+    free(fs);
+}
+/*The function takes a path and creates a new directory at that 
+path in the given file system*/
+void FsMkdir(Fs fs, char *path) {
+    
+}
+
+void FsMkfile(Fs fs, char *path) {
+    // TODO
+}
+
+void FsCd(Fs fs, char *path) {
+    // TODO
+}
+
+void FsLs(Fs fs, char *path) {
+    // TODO
+}
+
+void FsPwd(Fs fs) {
+    // TODO
+}
+
+void FsTree(Fs fs, char *path) {
+    // TODO
+}
+
+void FsPut(Fs fs, char *path, char *content) {
+    // TODO
+}
+
+void FsCat(Fs fs, char *path) {
+    // TODO
+}
+
+void FsDldir(Fs fs, char *path) {
+    // TODO
+}
+
+void FsDl(Fs fs, bool recursive, char *path) {
+    // TODO
+}
+
+void FsCp(Fs fs, bool recursive, char *src[], char *dest) {
+    // TODO
+}
+
+void FsMv(Fs fs, char *src[], char *dest) {
+    // TODO
+}
